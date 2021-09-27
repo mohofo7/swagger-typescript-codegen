@@ -34,6 +34,7 @@ export interface Method {
   readonly parameters: TypeSpecParameter[];
   readonly headers: Header[];
   readonly responseTypes: string;
+  readonly convertQueryParamsToFormDataInPOST: boolean;
 
   /** @deprecated use responseTypes instead, this field will be removed in a future version. */
   readonly successfulResponseType: string;
@@ -89,7 +90,8 @@ export function makeMethod(
     successfulResponseType,
     successfulResponseTypeIsRef,
     responseTypes: renderResponseTypes(defaultResponseTypeName, op, swagger),
-    isLatestVersion: false
+    isLatestVersion: false,
+    convertQueryParamsToFormDataInPOST: opts.convertQueryParamsToFormDataInPOST
   };
 }
 

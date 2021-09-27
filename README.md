@@ -71,6 +71,9 @@ mustache:
 imports:
   type: array
   description: Typescript definition files to be imported.
+convertQueryParamsToFormDataInPOST:
+  type: boolean
+  description: whether or not to convert query parameters in a POST request to form data.
 swagger:
   type: object
   required: true
@@ -193,6 +196,9 @@ methods:
       successfulResponseTypeIsRef:
         type: boolean
         description: True iff the successful response type is the name of a type defined in the Swagger schema.
+      convertQueryParamsToFormDataInPOST:
+        type: boolean
+        description: Provided by your options field
 ```
 
 #### Custom Mustache Variables

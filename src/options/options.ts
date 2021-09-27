@@ -18,6 +18,7 @@ interface Options {
   readonly mustache: typeof Mustache;
   readonly beautify: ((source: string) => string) | boolean;
   readonly beautifyOptions: JsBeautifyOptions;
+  readonly convertQueryParamsToFormDataInPOST: boolean;
 }
 
 interface SwaggerOption {
@@ -33,7 +34,8 @@ const DEFAULT_OPTIONS: Options = {
   template: {},
   mustache: Mustache,
   beautify: true,
-  beautifyOptions: {}
+  beautifyOptions: {},
+  convertQueryParamsToFormDataInPOST: true
 };
 
 /**

@@ -32,21 +32,12 @@ export function extractAdditionalPropertiesType(
   if (swaggerType.type && swaggerType.type !== "object") {
     return undefined;
   }
-  if (swaggerType.additionalProperties === false) {
-    return undefined;
-  }
   if (
-    swaggerType.additionalProperties === undefined ||
-    swaggerType.additionalProperties === true
+    swaggerType.additionalProperties === false ||
+    swaggerType.additionalProperties === true ||
+    swaggerType.additionalProperties === undefined
   ) {
-    // is there an easier way to make an "any" type?
-    return makeAnyTypeSpec({
-      type: "object",
-      required: [],
-      minItems: 0,
-      title: "any",
-      properties: {}
-    });
+    return undefined;
   }
   return convertType(swaggerType.additionalProperties, swagger);
 }
